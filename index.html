@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="favicon-preto.svg" type="image/svg+xml" />
+
+    <link rel="stylesheet" href="css/style.css" />
+
+    <title>Tecboard</title>
+  </head>
+  <body>
+    <header>
+      <img
+        src="img/logo-tecboard-branco.png"
+        alt="Logo Tecboard Branco"
+        id="logo"
+      />
+      <img src="img/modo-light.png" alt="Alterar Tema" id="theme-toggle" />
+    </header>
+
+    <main>
+      <section>
+        <h1>
+          <span>Fique de olho</span><br />
+          no que importa
+        </h1>
+        <p>
+          Monitoramento em tempo real com alertas inteligentes para sua
+          aplicação nunca sair do ar sem você saber.
+        </p>
+        <a href="#">Testar versão demo</a>
+        <img
+          src="img/celulares-sobrepostos-desktop.png"
+          alt="Dois celulares pretos sobrepostos com uma sombra roxa sob eles."
+        />
+      </section>
+    </main>
+
+    <script>
+      const toggleBtn = document.getElementById("theme-toggle");
+      const logo = document.getElementById("logo");
+      const favicon = document.querySelector('link[rel="icon"]');
+
+      document.body.classList.add("dark-mode");
+
+      toggleBtn.addEventListener("click", () => {
+        document.body.classList.toggle("light-mode");
+        document.body.classList.toggle("dark-mode");
+
+        const isLight = document.body.classList.contains("light-mode");
+
+        toggleBtn.src = isLight ? "img/modo-dark.png" : "img/modo-light.png";
+
+        logo.src = isLight
+          ? "img/logo-tecboard-preto.png"
+          : "img/logo-tecboard-branco.png";
+
+        favicon.href = isLight ? "favicon-preto.svg" : "favicon-branco.svg";
+      });
+    </script>
+  </body>
+</html>
